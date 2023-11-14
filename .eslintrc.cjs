@@ -1,27 +1,27 @@
 /** @type {import("eslint").Linter.Config} */
 const config = {
-  parser: "@typescript-eslint/parser",
+  parser: '@typescript-eslint/parser',
   parserOptions: {
     project: true,
   },
-  plugins: ["@typescript-eslint"],
+  plugins: ['@typescript-eslint'],
   extends: [
-    "next/core-web-vitals",
-    "plugin:@typescript-eslint/recommended-type-checked",
-    "plugin:@typescript-eslint/stylistic-type-checked",
+    'next/core-web-vitals',
+    'plugin:@typescript-eslint/recommended-type-checked',
+    'plugin:@typescript-eslint/stylistic-type-checked',
   ],
   rules: {
-    "@typescript-eslint/array-type": "off",
-    "@typescript-eslint/consistent-type-definitions": "off",
+    '@typescript-eslint/array-type': 'off',
+    '@typescript-eslint/consistent-type-definitions': 'off',
 
-    "@typescript-eslint/consistent-type-imports": [
-      "warn",
+    '@typescript-eslint/consistent-type-imports': [
+      'warn',
       {
-        prefer: "type-imports",
-        fixStyle: "inline-type-imports",
+        prefer: 'type-imports',
+        fixStyle: 'inline-type-imports',
       },
     ],
   },
-};
+}
 
-module.exports = config;
+module.exports = config
