@@ -11,6 +11,10 @@ const config = {
     'plugin:@typescript-eslint/stylistic-type-checked',
   ],
   rules: {
+    // base
+    'arrow-body-style': ['error', 'as-needed'],
+
+    // typescript-eslint
     '@typescript-eslint/array-type': 'off',
     '@typescript-eslint/consistent-type-definitions': 'off',
 
