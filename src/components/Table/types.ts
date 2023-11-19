@@ -18,3 +18,5 @@ export type UniqueColumn<Model> = Exclude<
   }[keyof Model],
   undefined
 >
+
+export type CellValue<T extends RowDef> = T[keyof T]
