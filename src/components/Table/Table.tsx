@@ -13,10 +13,10 @@ const Table = <Model extends RowDef>({
   columns,
   uniqueColumn,
 }: TableProps<Model>) => (
-  <table className="w-full">
+  <div className="w-full">
     <TableHeader columns={columns} />
     <TableBody rows={rows} uniqueColumn={uniqueColumn} />
-  </table>
+  </div>
 )
 
 export default Table

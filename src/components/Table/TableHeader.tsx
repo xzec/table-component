@@ -7,15 +7,15 @@ type TableHeaderProps<Model extends RowDef> = {
 const TableHeader = <Model extends RowDef>({
   columns,
 }: TableHeaderProps<Model>) => (
-  <thead className="flex w-full p-1 py-2 text-sm text-gray-500">
-    <tr className="flex w-full">
+  <div className="flex w-full p-1 py-2 text-sm text-gray-500">
+    <div className="flex w-full">
       {columns.map(({ field, label }) => (
-        <th key={field} className="w-full px-6 text-left">
+        <div key={field} className="w-full px-6 text-left">
           {typeof label === 'string' && label.length > 0 ? label : field}
-        </th>
+        </div>
       ))}
-    </tr>
-  </thead>
+    </div>
+  </div>
 )
 
 export default TableHeader

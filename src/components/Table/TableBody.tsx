@@ -11,14 +11,14 @@ const TableBody = <Model extends RowDef>({
   rows,
   uniqueColumn,
 }: TableBodyProps<Model>) => (
-  <tbody className="flex flex-col gap-2">
+  <div className="flex flex-col gap-2">
     {rows.map((row, index) => (
       <TableRow
         key={uniqueColumn !== undefined ? String(row[uniqueColumn]) : index}
         row={row}
       />
     ))}
-  </tbody>
+  </div>
 )
 
 export default TableBody
