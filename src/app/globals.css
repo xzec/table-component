@@ -3,13 +3,19 @@
 @tailwind utilities;
 
 :root {
-  --foreground-rgb: 255, 255, 255;
   --background: 35, 37, 52;
   --background-light: 41, 44, 61;
   --background-dark: 26, 26, 34;
+  --accent: 82, 55, 79;
 }
 
 body {
   @apply text-gray-300;
   background: rgb(var(--background));
+}
+
+@layer utilities {
+  .vertical-text {
+    writing-mode: vertical-rl;
+  }
 }

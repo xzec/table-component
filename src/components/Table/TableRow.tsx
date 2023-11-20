@@ -15,20 +15,25 @@ const TableRow = <Model extends RowDef>({ row }: TableRowProps<Model>) => {
 
   return (
     <>
-      <tr
-        onClick={handleRowExpand}
-        tabIndex={0}
-        role="button"
+      <div
         className={`${
           isExpanded
             ? 'border-transparent bg-background-light'
-            : 'border-dashed border-fuchsia-900'
-        } flex w-full cursor-pointer rounded-md border text-sm`}
+            : 'border-accent border-dashed'
+        } relative flex w-full rounded-md border text-sm`}
       >
         {Object.entries(row).map(([key, value]) => (
           <TableCell key={key}>{value}</TableCell>
         ))}
-      </tr>
+        <span
+          onClick={handleRowExpand}
+          tabIndex={0}
+          role="button"
+          className="vertical-text absolute -right-10 top-1/2 -translate-y-1/2 transform cursor-pointer select-none text-3xl text-gray-600"
+        >
+          ...
+        </span>
+      </div>
       {isExpanded && (
         <div className="-mt-2 flex w-11/12 justify-center gap-8 self-center rounded-b-md bg-background-dark p-6 text-xs">
           <span>Activate</span>

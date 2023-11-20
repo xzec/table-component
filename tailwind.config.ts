@@ -12,6 +12,7 @@ const config: Config = {
         background: 'rgb(var(--background))',
         'background-light': 'rgb(var(--background-light))',
         'background-dark': 'rgb(var(--background-dark))',
+        accent: 'rgb(var(--accent))',
       },
     },
   },
