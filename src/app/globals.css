@@ -7,6 +7,12 @@
   --background-light: 41, 44, 61;
   --background-dark: 26, 26, 34;
   --accent: 82, 55, 79;
+
+  color-scheme: dark
+}
+
+html {
+  overflow-y: scroll
 }
 
 body {
