@@ -1,5 +1,5 @@
 import { useState, createContext, type PropsWithChildren, useMemo } from 'react'
-import type { RowDef, SortModel } from '@/components/Table'
+import type { RowDef, SortModel, ColumnDef } from '@/components/Table'
 import type { TableContextProps, TableProviderProps } from './types'
 
 export const TableContext = createContext<TableContextProps | undefined>(
@@ -17,6 +17,21 @@ const TableProvider = <Model extends RowDef>({
     field: defaultSortColumn,
     sort: 'asc',
   })
+
+  const sortByField = (field: ColumnDef<Model>['field']) =>
+    setSortModel((prev) =>
+      prev.field !== field
+        ? { field, sort: 'asc' }
+        : {
+            field,
+            sort:
+              prev.sort === 'asc'
+                ? 'desc'
+                : prev.sort === 'desc'
+                  ? null
+                  : 'asc',
+          }
+    )
 
   const sortedRows = useMemo(() => {
     const { field, sort } = sortModel
@@ -44,7 +59,7 @@ const TableProvider = <Model extends RowDef>({
     columns,
     uniqueColumn,
     sortModel,
-    setSortModel,
+    sortByField,
   }
 
   return (

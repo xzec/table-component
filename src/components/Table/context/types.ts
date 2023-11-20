@@ -19,5 +19,5 @@ export type TableContextProps<Model extends RowDef = RowDef> = Omit<
 > & {
   sortedRows: Model[]
   sortModel: SortModel<Model>
-  setSortModel: Dispatch<SetStateAction<SortModel<Model>>>
+  sortByField: (field: ColumnDef<Model>['field']) => void
 }
