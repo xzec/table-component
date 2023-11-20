@@ -3,6 +3,7 @@
 import type { RowDef } from '@/components/Table/types'
 import TableCell from '@/components/Table/TableCell'
 import { useState } from 'react'
+import TableRowActions from '@/components/Table/TableRowActions'
 
 type TableRowProps<Model extends RowDef> = {
   row: Model
@@ -34,15 +35,7 @@ const TableRow = <Model extends RowDef>({ row }: TableRowProps<Model>) => {
           ...
         </span>
       </div>
-      {isExpanded && (
-        <div className="-mt-2 flex w-11/12 justify-center gap-8 self-center rounded-b-md bg-background-dark p-6 text-xs">
-          <span>Activate</span>
-          <span>Preview</span>
-          <span>Edit</span>
-          <span>Stats</span>
-          <span>Delete</span>
-        </div>
-      )}
+      <TableRowActions open={isExpanded} />
     </>
   )
 }
