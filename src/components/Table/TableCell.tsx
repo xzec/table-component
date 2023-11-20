@@ -6,6 +6,10 @@ type TableCellProps<Model extends RowDef> = {
 
 const TableCell = <Model extends RowDef>({
   children,
-}: TableCellProps<Model>) => <div className="w-full px-6 py-6">{children}</div>
+}: TableCellProps<Model>) => (
+  <div className="w-full px-6 py-6">
+    {typeof children === 'boolean' ? String(children) : children}
+  </div>
+)
 
 export default TableCell

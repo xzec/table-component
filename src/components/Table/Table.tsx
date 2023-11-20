@@ -8,6 +8,7 @@ import TableProvider from '@/components/Table/context'
 type TableProps<Model extends RowDef> = {
   rows: Model[]
   columns: ColumnDef<Model>[]
+  defaultSortColumn: ColumnDef<Model>['field']
   uniqueColumn?: UniqueColumn<Model>
 }
 

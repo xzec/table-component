@@ -9,11 +9,15 @@ import type {
 export type TableProviderProps<Model extends RowDef> = {
   rows: Model[]
   columns: ColumnDef<Model>[]
+  defaultSortColumn: ColumnDef<Model>['field']
   uniqueColumn?: UniqueColumn<Model>
 }
 
-export type TableContextProps<Model extends RowDef = RowDef> =
-  TableProviderProps<Model> & {
-    sortModel: SortModel<Model> | null
-    setSortModel: Dispatch<SetStateAction<SortModel<Model> | null>>
-  }
+export type TableContextProps<Model extends RowDef = RowDef> = Omit<
+  TableProviderProps<Model>,
+  'defaultSortColumn'
+> & {
+  sortedRows: Model[]
+  sortModel: SortModel<Model>
+  setSortModel: Dispatch<SetStateAction<SortModel<Model>>>
+}

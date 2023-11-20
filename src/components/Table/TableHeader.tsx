@@ -6,10 +6,19 @@ const TableHeader: FC = <Model extends RowDef>() => {
   const { columns, sortModel, setSortModel } = useTable<Model>()
 
   const handleSortChange = (field: ColumnDef<Model>['field']) =>
-    setSortModel({
-      field,
-      sort: sortModel?.sort === 'asc' ? 'desc' : 'asc',
-    })
+    setSortModel((prev) =>
+      prev.field !== field
+        ? { field, sort: 'asc' }
+        : {
+            field,
+            sort:
+              prev.sort === 'asc'
+                ? 'desc'
+                : prev.sort === 'desc'
+                  ? null
+                  : 'asc',
+          }
+    )
 
   return (
     <div className="flex w-full p-1 py-2 text-sm text-gray-500">
@@ -20,11 +29,17 @@ const TableHeader: FC = <Model extends RowDef>() => {
               tabIndex={0}
               role="button"
               onClick={() => handleSortChange(field)}
-              className="select-none"
+              className={`select-none ${
+                sortModel.sort !== null && sortModel.field === field
+                  ? 'text-white'
+                  : ''
+              }`}
             >
               {typeof label === 'string' && label.length > 0 ? label : field}
+              {sortModel.sort !== null && sortModel.field === field
+                ? ` (${sortModel.sort})`
+                : null}
             </span>
-            {sortModel?.field === field ? sortModel.sort : null}
           </div>
         ))}
       </div>

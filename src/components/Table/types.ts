@@ -19,9 +19,7 @@ export type UniqueColumn<Model> = Exclude<
 
 export type CellValue<T extends RowDef> = T[keyof T]
 
-type Sort = 'asc' | 'desc'
-
 export type SortModel<Model extends RowDef> = {
   field: ExtractStringKeys<Model>
-  sort: Sort
+  sort: 'asc' | 'desc' | null
 }
