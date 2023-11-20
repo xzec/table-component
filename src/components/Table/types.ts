@@ -5,9 +5,7 @@ export type RowDef = Record<
   string | number | boolean | null | undefined
 >
 
-export type ColumnDef<
-  Model extends Record<string, string | number | boolean | null | undefined>,
-> = {
+export type ColumnDef<Model extends RowDef> = {
   field: ExtractStringKeys<Model>
   label?: string
 }
@@ -20,3 +18,10 @@ export type UniqueColumn<Model> = Exclude<
 >
 
 export type CellValue<T extends RowDef> = T[keyof T]
+
+type Sort = 'asc' | 'desc'
+
+export type SortModel<Model extends RowDef> = {
+  field: ExtractStringKeys<Model>
+  sort: Sort
+}
